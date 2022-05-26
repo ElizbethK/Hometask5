@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person profile</title>
+</head>
+<style>
+    body{
+        max-width: 900px;
+        margin:  0 auto;
+        border: 1px solid #f6fd30;
+        padding: 10px;
+        text-align: center;
+        justify-content: space-around;
+    }
+
+    .profile{
+        max-width: 450px;
+        margin:  0 auto;
+        border: 1px solid #f6fd30;
+        padding: 10px;
+    }
+</style>
+<body>
+
+<h1>Person found</h1>
+
+<p>The person you are looking for: </p>
+<div class = "profile">
+<p th:text="'Surname: ' + ${person.surname}" />
+<p th:text="'Name: ' + ${person.name}" />
+<p th:text="'Patronymic: ' + ${person.patronymic}" />
+<p th:text="'Age: ' + ${person.age}" />
+    <p th:text="'Salary: ' + ${person.salary}" />
+<p th:text="'Email: ' + ${person.email}" />
+<p th:text="'Job: ' + ${person.job}" />
+</div>
+<p>Details:</p>
+<p th:text="'Current Time: ' + ${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" />
+<p th:text="'Current Browser: ' + ${#httpServletRequest.getHeader('User-Agent')}"/>
+
+<form action="#" th:action="@{/sendmail/{toemail}(toemail=${person.email})}" method="get">
+    <p><input type="submit" value="Send an email" /></p>
+</form>
+
+<p></p>
+<p><a href="/findperson">Back to search form</a></p>
+<p></p>
+
+</body>
+</html>

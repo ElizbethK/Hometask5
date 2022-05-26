@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>File Upload</title>
+</head>
+<style>
+    body{
+        max-width: 900px;
+        margin:  0 auto;
+        border: 1px solid #f806c0;
+        padding: 10px;
+        text-align: center;
+        justify-content: space-around;
+    }
+</style>
+<body>
+
+<h1>Upload data</h1>
+<h3>file *.csv</h3>
+
+<p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+<form method="post" th:action="@{/uploadperson}" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <p><button type="submit">Upload File</button></p>
+</form>
+<p><a href="/profile">Back to profile adding form</a></p>
+</body>
+</html>

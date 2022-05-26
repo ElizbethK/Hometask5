@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+    body{
+        max-width: 900px;
+        margin:  0 auto;
+        border: 1px solid #42f806;
+        padding: 10px;
+        text-align: center;
+        justify-content: space-around;
+    }
+</style>
+<body>
+<h1>Result</h1>
+<p th:text="'Surname: ' + ${person.surname}" />
+<p th:text="'Name: ' + ${person.name}" />
+<p th:text="'Patronymic: ' + ${person.patronymic}" />
+<p th:text="'Age: ' + ${person.age}" />
+<p th:text="'Email: ' + ${person.email}" />
+<p th:text="'Job: ' + ${person.job}" />
+<a href="/profile">Add another person</a>
+</body>
+</html>

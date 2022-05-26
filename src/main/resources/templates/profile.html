@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+body{
+max-width: 900px;
+margin:  0 auto;
+    border: 1px solid #31bd1c;
+    padding: 10px;
+    text-align: center;
+    justify-content: space-around;
+}
+</style>
+<body>
+    <h1>Profile</h1>
+<form action="#" th:action="@{/people}" th:object="${person}" method="POST" >
+
+    <td>Surname: <input type="text" th:field="*{surname}" placeholder="Ivanov" id="surname" pattern="[A-Za-zА-Яа-яЁё]{2,30}" required/></td>
+<!--    <td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" pattern="[A-Za-zА-Яа-яЁё]" >Surname Error</td>-->
+    <p></p>
+
+
+    <p>Name: <input type="text" th:field="*{name}" id="name" placeholder="Ivan" pattern="[A-Za-zА-Яа-яЁё]{2,30}" required/></p>
+<!--    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>-->
+    <p></p>
+
+
+    <p>Patronymic: <input type="text" th:field="*{patronymic}" id="patronymic" placeholder="Ivanovich" pattern="[A-Za-zА-Яа-яЁё]{2,30}" required/></p>
+<!--    <td th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}">Patronymic Error</td>-->
+    <p></p>
+
+
+    <p>Age: <input type="text" th:field="*{age}" id="age" placeholder="22" min="1" max="99" required /></p>
+<!--    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>-->
+    <p></p>
+
+    <p>Salary: <input type="number" th:field="*{salary}" placeholder="Salary" min="1" max="10000000" required="true"/></p>
+
+
+    <p>Email: <input type="text" th:field="*{email}" id="email" placeholder="ivanoviv.@gmail.com" pattern="^\S+@\S+\.\S+$" title="example@mail.com" required/></p>
+<!--    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>-->
+    <p></p>
+
+
+    <p>Job: <input type="text" th:field="*{job}" id="job" placeholder="Gazprom" pattern="[A-Za-zА-Яа-яЁё]{2,50}" required/></p>
+<!--    <td th:if="${#fields.hasErrors('job')}" th:errors="*{job}">Job Error</td>-->
+        <p></p>
+
+    <p><a href="/uploadperson">Upload file</a></p>
+
+
+    <p><input type="submit" value="Add person"/> <input type="reset" value="Reset" /></p>
+
+    <p><a href="/findperson">Find person</a></p>
+</form>
+
+
+
+</body>
+</html>
